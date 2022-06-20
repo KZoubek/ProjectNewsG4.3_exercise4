@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien.controllers;
 
+import at.ac.fhcampuswien.App;
 import at.ac.fhcampuswien.api.NewsApi;
 import at.ac.fhcampuswien.downloader.Downloader;
 import at.ac.fhcampuswien.enums.Country;
@@ -13,8 +14,16 @@ import java.util.stream.Collectors;
 
 public class AppController {
     private List<Article> articles;
+    private static AppController instance;
 
-    public AppController() {}
+    private AppController() {}
+
+    // makes sense to make a singleton pattern here as only one object will be created
+    public static AppController getInstance(){
+        if (instance == null)
+            instance new AppController();
+        return instance;
+    }
 
     public void setArticles(List<Article> articles){
         this.articles = articles;

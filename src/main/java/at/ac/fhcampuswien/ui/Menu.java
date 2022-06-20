@@ -15,7 +15,8 @@ public class Menu {
 
     public void start(){
         String input;
-        controller = new AppController();
+        // from App Controller to get Singleton Pattern
+        controller = AppController.getInstance();
 
         do{
             printMenu();
