@@ -21,7 +21,7 @@ public class AppController {
     // makes sense to make a singleton pattern here as only one object will be created
     public static AppController getInstance(){
         if (instance == null)
-            instance new AppController();
+            instance = new AppController();
         return instance;
     }
 

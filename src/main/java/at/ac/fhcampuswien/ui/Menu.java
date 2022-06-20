@@ -11,7 +11,8 @@ import java.util.Scanner;
 public class Menu {
     private static final String INVALID_INPUT_MESSAGE = "No valid input. Try again";
     private static final String EXIT_MESSAGE = "Bye bye!";
-    private AppController controller;
+    //changed to static because singelton pattern must be static
+    private static AppController controller;
 
     public void start(){
         String input;
