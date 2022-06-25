@@ -14,14 +14,19 @@ import java.util.stream.Collectors;
 
 public class AppController {
     private List<Article> articles;
+    //1. Add a private static field for storing Singleton instance
+    //Applies here as the app controller will only create one object
     private static AppController instance;
 
+    //2. Make constructor of class private
     private AppController() {}
 
     // makes sense to make a singleton pattern here as only one object will be created
-    public static AppController getInstance(){
-        if (instance == null)
+    //3. Declare a public static creation method for getting the instance
+    public static AppController getInstance() {
+        if (instance == null){
             instance = new AppController();
+        }
         return instance;
     }
 
@@ -29,9 +34,20 @@ public class AppController {
         this.articles = articles;
     }
 
+
     public List<Article> getArticles(){
         return articles;
     }
+       /* Article article = new Article.Builder()
+                .author("")
+                .title("")
+                .description("")
+                .url("")
+                .urlToImage("")
+                .publishedAt("")
+                .content("")
+                .build();
+        return article;*/
 
     // Method is needed for exercise 4 - ignore for exercise 3 solution
     // returns number of downloaded article urls

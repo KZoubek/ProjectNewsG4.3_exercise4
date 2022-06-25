@@ -11,12 +11,14 @@ import java.util.Scanner;
 public class Menu {
     private static final String INVALID_INPUT_MESSAGE = "No valid input. Try again";
     private static final String EXIT_MESSAGE = "Bye bye!";
+
     //changed to static because singelton pattern must be static
     private static AppController controller;
 
     public void start(){
         String input;
         // from App Controller to get Singleton Pattern
+        //4. Replaced direct calls with calls to statice creation method in our program
         controller = AppController.getInstance();
 
         do{

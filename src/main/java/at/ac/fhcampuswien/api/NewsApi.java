@@ -17,7 +17,7 @@ public class NewsApi {
     public static final String DELIMITER = "&";
     private static final String URL = "https://newsapi.org/v2/%s?q=%s&apiKey=%s";
     private static final String API_KEY = Dotenv.load().get("API_TOKEN");   // read token from .env file -> add .env to .gitignore!!!
-    private OkHttpClient client;
+    private OkHttpClient client = new OkHttpClient();
 
     private Endpoint endpoint;
     private String q;
