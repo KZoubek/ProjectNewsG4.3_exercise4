@@ -18,7 +18,7 @@ public class ParallelDownloader extends Downloader{
 
         List<Callable<String>> callables = new ArrayList<>();
         for(String url : urls){
-            Callable<String> task = () -> {     //   "->" ist die lambda expression
+            Callable<String> task = () -> {     //   "->" DAS ist die lambda expression
                 try{
                     return saveUrl2File(url);
                 }
@@ -26,14 +26,14 @@ public class ParallelDownloader extends Downloader{
                     return "couldnt download URL: " + couldntDownload.getMessage();
                 }
             };
-            callables.add(task);
+            callables.add(task);            // Callable represents an asynchronous task which can be executed by a separate thread
         }
 
         int count = 0;
         try {
-            List<Future<String>> allFutures = pool.invokeAll(callables);
-            for(Future<String> f : allFutures){
-                if (f.get() != null) {
+            List<Future<String>> allFutures = pool.invokeAll(callables); //A Future represents the result of an asynchronous computation.
+            for(Future<String> all : allFutures){
+                if (all.get() != null) {
                     count++;
                 }
             }
