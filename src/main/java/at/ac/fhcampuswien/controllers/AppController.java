@@ -37,16 +37,6 @@ public class AppController {
 
     public List<Article> getArticles(){
         return articles;
-        /*Article articles = new Article.Builder()
-                .author("")
-                .title("")
-                .description("")
-                .url("")
-                .urlToImage("")
-                .publishedAt("")
-                .content("")
-                .build();
-        return (List<Article>) articles;*/
     }
 
     // Method is needed for exercise 4 - ignore for exercise 3 solution
@@ -190,6 +180,28 @@ public class AppController {
         }
         return filtered;
     }
+    // how to use Builder Pattern from Article Class
+    private static List<Article> generateMockList() {
+        Article one = new Article.Builder()
+                .author("Margarete Schramboeck")
+                .title("SWIFT geht in Austria auch mit Erlagschein")
+                .build();
 
+        Article two = new Article.Builder()
+                .author("Simon Neuch")
+                .title("Angermanagement and Mandalas")
+                .build();
+
+        Article three = new Article.Builder()
+                .author("Bloomberg")
+                .title("How to: Bitcoin in echtes Geld umwandeln")
+                .build();
+
+        List<Article> mock = new ArrayList<>();
+        mock.add(one);
+        mock.add(two);
+        mock.add(three);
+        return mock;
+    }
 
 }

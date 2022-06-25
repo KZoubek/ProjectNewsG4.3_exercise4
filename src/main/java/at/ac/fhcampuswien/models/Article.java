@@ -11,7 +11,7 @@ public class Article {
     private String content;
 
     //new Builder constructor
-    public Article(Builder builder){
+    private Article(Builder builder){
         this.author = builder.author;
         this.title = builder.title;
         this.source = builder.source;
@@ -87,12 +87,13 @@ public class Article {
 
         //Constructor for the optional variables
         // each functions needs to return the builder itself= return this;
-        public Builder author(String author){
+
+        public Builder author (String author){
             this.author = author;
             return this;
         }
 
-        public Builder title(String title) {
+        public Builder title (String title){
             this.title = title;
             return this;
         }
@@ -130,8 +131,7 @@ public class Article {
         // build() returns a new Article
         ////Return the finally constructed Article object
         public Article build(){
-            Article article =  new Article(this);
-            return article;
+            return new Article(this);
         }
     }
 }

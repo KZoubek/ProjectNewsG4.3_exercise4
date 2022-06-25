@@ -16,6 +16,15 @@ public class NewsResponse {
     }
 
     public List<Article> getArticles() {
+        /*Article articles = new Article.Builder()
+                .author("")
+                .title("")
+                .description("")
+                .url("")
+                .urlToImage("")
+                .publishedAt("")
+                .content("")
+                .build();*/
         return articles;
     }
 }
