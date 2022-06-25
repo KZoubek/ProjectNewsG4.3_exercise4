@@ -45,7 +45,6 @@ public class Menu {
     // Method is needed for exercise 4 - ignore for exercise 3 solution
     private void downloadURLs(){
         try {
-            int resultSequential = controller.downloadURLs(new SequentialDownloader());
             // TODO print time in ms it took to download URLs sequentially
             long start = System.currentTimeMillis();
             long end = System.currentTimeMillis();
