@@ -47,9 +47,12 @@ public class BuildURL {
         private SortBy sortBy;
         private String pageSize;
         private String page;
+        private String scheme;
+        private String host;
+        private String version;
 
         public Builder(Endpoint endpoint, String q, String qInTitle, Country sourceCountry, Category sourceCategory, String domains, String excludeDomains, String from, String to,
-                       Language language, SortBy sortBy, String pageSize,String page ){
+                       Language language, SortBy sortBy, String pageSize,String page, String scheme, String host, String version ){
             this.endpoint = endpoint;
             this.q = q;
             this.qInTitle = qInTitle;
@@ -63,6 +66,32 @@ public class BuildURL {
             this.sortBy = sortBy;
             this.pageSize = pageSize;
             this.page = page;
+            this.scheme = scheme;
+            this.host = host;
+            this.version = version;
+        }
+
+        @Override
+        public String toString(){
+            StringBuilder buildUrl = new StringBuilder().append(scheme).append(host).append(version).append(endpoint);
+
+            if(language != null){
+                buildUrl.append(language).append("language=");
+            }
+            if(sourceCountry != null){
+                buildUrl.append(sourceCountry).append("sourceCountry=");
+            }
+            if(sourceCategory != null){
+                buildUrl.append(sourceCategory).append("sourceCategory=");
+            }
+            if(sortBy != null){
+                buildUrl.append(sortBy).append("sortBy=");
+            }
+            if(q != null){
+                buildUrl.append(q).append("q=");
+            }
+
+            return buildUrl.toString();
         }
 
         public Builder endpoint(Endpoint endpoint){
@@ -127,6 +156,21 @@ public class BuildURL {
 
         public Builder page(String page){
             this.page = page;
+            return this;
+        }
+
+        public Builder scheme(String scheme){
+            this.scheme = scheme;
+            return this;
+        }
+
+        public Builder host(String host){
+            this.host = host;
+            return this;
+        }
+
+        public Builder version(String version){
+            this.version = version;
             return this;
         }
 
