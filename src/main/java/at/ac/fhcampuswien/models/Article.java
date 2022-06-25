@@ -81,8 +81,8 @@ public class Article {
         private String publishedAt;
         private String content;
 
-        //Constructor for the must variables
-        public Builder(String author, String title){
+        //Constructor
+        public Builder(){
         }
 
         //Constructor for the optional variables

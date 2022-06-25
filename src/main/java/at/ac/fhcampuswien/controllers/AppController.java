@@ -36,9 +36,7 @@ public class AppController {
 
 
     public List<Article> getArticles(){
-        return articles;
-    }
-       /* Article article = new Article.Builder()
+        Article articles = new Article.Builder()
                 .author("")
                 .title("")
                 .description("")
@@ -47,7 +45,8 @@ public class AppController {
                 .publishedAt("")
                 .content("")
                 .build();
-        return article;*/
+        return (List<Article>) articles;
+    }
 
     // Method is needed for exercise 4 - ignore for exercise 3 solution
     // returns number of downloaded article urls
