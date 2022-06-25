@@ -47,11 +47,21 @@ public class Menu {
         try {
             int resultSequential = controller.downloadURLs(new SequentialDownloader());
             // TODO print time in ms it took to download URLs sequentially
+            long start = System.currentTimeMillis();
+            long end = System.currentTimeMillis();
+            int resultSequential = controller.downloadURLs(new SequentialDownloader());
+
+            // TODO print time in ms it took to download URLs parallel
+            System.out.println(resultSequential+" files downloaded in "+ (end-start) + " ms.");
 
             // TODO implement the process() function in ParallelDownloader class
+            start = System.currentTimeMillis();
+            end = System.currentTimeMillis();
             int resultParallel = controller.downloadURLs(new ParallelDownloader());
 
             // TODO print time in ms it took to download URLs parallel
+            System.out.println(resultParallel+" files downloaded with Parallel downloader in "+ (end-start) + " ms.");
+
 
         } catch (NewsAPIException e){
             System.out.println(e.getMessage());
