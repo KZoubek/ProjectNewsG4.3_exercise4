@@ -16,9 +16,9 @@ public class ParallelDownloader extends Downloader{
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         ExecutorService pool = Executors.newFixedThreadPool(availableProcessors);
 
-        List<Callable<String>> futures = new ArrayList<>();
+        List<Callable<String>> callables = new ArrayList<>();
         for(String url : urls){
-            Callable<String> task = () -> {
+            Callable<String> task = () -> {     //   "->" ist die lambda expression
                 try{
                     return saveUrl2File(url);
                 }
@@ -26,17 +26,21 @@ public class ParallelDownloader extends Downloader{
                     return "couldnt download URL: " + couldntDownload.getMessage();
                 }
             };
-            futures.add(task);
+            callables.add(task);
         }
 
         int count = 0;
         try {
-            List<Future<String>> allFutures = pool.invokeALL(futures);
+            List<Future<String>> allFutures = pool.invokeAll(callables);
             for(Future<String> f : allFutures){
                 if (f.get() != null) {
                     count++;
                 }
             }
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
 
         pool.shutdown();
