@@ -36,7 +36,8 @@ public class AppController {
 
 
     public List<Article> getArticles(){
-        Article articles = new Article.Builder()
+        return articles;
+        /*Article articles = new Article.Builder()
                 .author("")
                 .title("")
                 .description("")
@@ -45,7 +46,7 @@ public class AppController {
                 .publishedAt("")
                 .content("")
                 .build();
-        return (List<Article>) articles;
+        return (List<Article>) articles;*/
     }
 
     // Method is needed for exercise 4 - ignore for exercise 3 solution
