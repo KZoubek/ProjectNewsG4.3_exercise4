@@ -39,30 +39,30 @@ public class Menu {
             case "e" -> getCountArticlesNYTimes();
             case "f" -> getArticlesShorterThan();
             case "g" -> sortArticlesByContentLength();
-            case "h" -> downloadURLs();
+            case "h" -> downloadURLsMenu();
             //case "i" -> generateMocklist(controller);
             default -> printInvalidInputMessage();
         }
     }
 
     // Method is needed for exercise 4 - ignore for exercise 3 solution
-    private void downloadURLs(){
+    private void downloadURLsMenu(){
         try {
             // TODO print time in ms it took to download URLs sequentially
-            long start = System.currentTimeMillis();
-            long end = System.currentTimeMillis();
+            long start1 = System.currentTimeMillis();
             int resultSequential = controller.downloadURLs(new SequentialDownloader());
+            long end1 = System.currentTimeMillis();
 
             // TODO print time in ms it took to download URLs parallel
-            System.out.println(resultSequential+" files downloaded in "+ (end-start) + " ms.");
+            System.out.println(resultSequential+" files downloaded in "+ ( end1 - start1 ) + " ms.");
 
             // TODO implement the process() function in ParallelDownloader class
-            start = System.currentTimeMillis();
-            end = System.currentTimeMillis();
+            long start = System.currentTimeMillis();
             int resultParallel = controller.downloadURLs(new ParallelDownloader());
+            long end = System.currentTimeMillis();
 
             // TODO print time in ms it took to download URLs parallel
-            System.out.println(resultParallel+" files downloaded with Parallel downloader in "+ (end-start) + " ms.");
+            System.out.println(resultParallel+" files downloaded with Parallel downloader in "+ (end - start) + " ms.");
 
 
         } catch (NewsAPIException e){

@@ -39,8 +39,8 @@ public class ParallelDownloader extends Downloader{
             }
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        } catch (InterruptedException f) {
+            throw new RuntimeException("runtimeException");
         }
 
         pool.shutdown();

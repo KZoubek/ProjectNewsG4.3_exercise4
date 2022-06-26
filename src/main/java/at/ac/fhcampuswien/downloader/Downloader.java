@@ -21,7 +21,10 @@ public abstract class Downloader {
     public String saveUrl2File(String urlString) throws NewsAPIException {
         InputStream is = null;
         OutputStream os = null;
-        String fileName;
+        String fileName = "";
+        if (urlString.contains("www.npr.org")){
+            return fileName;
+        }
         try {
             URL url4download = new URL(urlString);  // Convert string to URL
             is = url4download.openStream();
@@ -30,6 +33,7 @@ public abstract class Downloader {
             if (fileName.isEmpty()) {
                 fileName = url4download.getHost() + HTML_EXTENSION; // if no filename could be extracted use the URL host and .html extension
             }
+            fileName = fileName.replaceAll("[!?=&#*%]","");
 
             os = new FileOutputStream(DIRECTORY_DOWNLOAD + fileName);   // write to /download/<filename>
 
