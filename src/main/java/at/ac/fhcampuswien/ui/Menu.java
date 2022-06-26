@@ -40,7 +40,6 @@ public class Menu {
             case "f" -> getArticlesShorterThan();
             case "g" -> sortArticlesByContentLength();
             case "h" -> downloadURLsMenu();
-            //case "i" -> generateMocklist(controller);
             default -> printInvalidInputMessage();
         }
     }
