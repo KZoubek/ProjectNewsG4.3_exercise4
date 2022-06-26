@@ -26,12 +26,12 @@ public class ParallelDownloader extends Downloader{
                     return "couldnt download URL: " + couldntDownload.getMessage();
                 }
             };
-            callables.add(task);            // Callable represents an asynchronous task which can be executed by a separate thread
+            callables.add(task);  // Callable represents an asynchronous task which can be executed by a separate thread
         }
 
         int count = 0;
         try {
-            List<Future<String>> allFutures = pool.invokeAll(callables); //A Future represents the result of an asynchronous computation.
+            List<Future<String>> allFutures = pool.invokeAll(callables);//A Future represents the result of an asynchronous computation.
             for(Future<String> all : allFutures){
                 if (all.get() != null) {
                     count++;
