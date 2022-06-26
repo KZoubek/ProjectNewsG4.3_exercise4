@@ -55,7 +55,11 @@ public class AppController {
         if( articles == null)
             throw new NewsAPIException();
 
-        List<String> urls = new ArrayList<>();
+        List<String> urls = articles.stream()
+                .map(Article::getUrl)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
 
         // TODO extract urls from articles with java stream
 
