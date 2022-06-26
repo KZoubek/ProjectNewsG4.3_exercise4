@@ -126,6 +126,7 @@ public class AppController {
             throw new NewsAPIException("Load data first");
 
         return articles.stream()
+                //added stream to filter urls
                 .map(Article::getAuthor)
                 .filter(Objects::nonNull)
                 .max(Comparator.comparing(String::length))
