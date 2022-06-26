@@ -44,15 +44,11 @@ public class AppController {
     public int downloadURLs(Downloader downloader) throws NewsAPIException{
         if( articles == null)
             throw new NewsAPIException();
-
+        // TODO extract urls from articles with java stream
         List<String> urls = articles.stream()
                 .map(Article::getUrl)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
-
-
-        // TODO extract urls from articles with java stream
-
         return downloader.process(urls);
     }
 
