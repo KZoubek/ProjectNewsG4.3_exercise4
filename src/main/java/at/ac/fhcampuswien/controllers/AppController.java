@@ -68,6 +68,9 @@ public class AppController {
      * @return article list
      */
     public List<Article> getTopHeadlinesAustria() {
+        //this line the AppController can take the variables and builds it with the ".build()"
+        //you can add more information to it like "domains, from, to, ect."
+        //".build()" is from NewsApi
         NewsApi api = new NewsApi.Builder()
                 .endpoint(Endpoint.TOP_HEADLINES)
                 .q("")
@@ -91,6 +94,9 @@ public class AppController {
      * @return filtered list
      */
     public List<Article> getAllNewsBitcoin() {
+        //this line the AppController can take the variables and builds it with the ".build()"
+        //you can add more information to it like "domains, from, to, ect."
+        //".build()" is from NewsApi
         NewsApi api = new NewsApi.Builder()
                 .endpoint(Endpoint.EVERYTHING)
                 .q("bitcoin")

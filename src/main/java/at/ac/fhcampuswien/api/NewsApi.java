@@ -17,7 +17,7 @@ public class NewsApi {
     public static final String DELIMITER = "&";
     private static final String URL = "https://newsapi.org/v2/%s?q=%s&apiKey=%s";
     private static final String API_KEY = Dotenv.load().get("API_TOKEN");   // read token from .env file -> add .env to .gitignore!!!
-    private final OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client = new OkHttpClient(); //"new OkHttpClient()" has been added because the client would have been NULL
 
     private final Endpoint endpoint;
     private final String q;
@@ -33,6 +33,7 @@ public class NewsApi {
     private final String pageSize;
     private final String page;
 
+    //constructor for Builder builder
     private NewsApi(Builder builder) {
         this.endpoint = builder.endpoint;
         this.q = builder.q;
@@ -49,6 +50,7 @@ public class NewsApi {
         this.page = builder.page;
     }
 
+    //nested class in NewsApi
     public static class Builder{
         private Endpoint endpoint;
         private String q;
@@ -64,6 +66,7 @@ public class NewsApi {
         private String pageSize;
         private String page;
 
+        //constructor for Builder
         public Builder(){}
 
         /*
@@ -92,6 +95,8 @@ public class NewsApi {
 
          */
 
+        //constructor for each variable and it returns that with the "this" statement
+        //is used in AppController class
         public Builder endpoint(Endpoint endpoint){
             this.endpoint = endpoint;
             return this;
@@ -157,11 +162,14 @@ public class NewsApi {
             return this;
         }
 
+        //returns the created NewsApi object
+        //used in AppController
         public NewsApi build(){
             return new NewsApi(this);
         }
     }
 
+    //getter are needed to get the right variable but there are no setters because it provides immutability
     public String getQ() {
         return q;
     }
