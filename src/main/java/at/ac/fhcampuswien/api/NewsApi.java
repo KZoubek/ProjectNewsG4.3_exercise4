@@ -17,21 +17,21 @@ public class NewsApi {
     public static final String DELIMITER = "&";
     private static final String URL = "https://newsapi.org/v2/%s?q=%s&apiKey=%s";
     private static final String API_KEY = Dotenv.load().get("API_TOKEN");   // read token from .env file -> add .env to .gitignore!!!
-    private OkHttpClient client;
+    private final OkHttpClient client = new OkHttpClient();
 
-    private Endpoint endpoint;
-    private String q;
-    private String qInTitle;
-    private Country sourceCountry;
-    private Category sourceCategory;
-    private String domains;
-    private String excludeDomains;
-    private String from;
-    private String to;
-    private Language language;
-    private SortBy sortBy;
-    private String pageSize;
-    private String page;
+    private final Endpoint endpoint;
+    private final String q;
+    private final String qInTitle;
+    private final Country sourceCountry;
+    private final Category sourceCategory;
+    private final String domains;
+    private final String excludeDomains;
+    private final String from;
+    private final String to;
+    private final Language language;
+    private final SortBy sortBy;
+    private final String pageSize;
+    private final String page;
 
     private NewsApi(Builder builder) {
         this.endpoint = builder.endpoint;

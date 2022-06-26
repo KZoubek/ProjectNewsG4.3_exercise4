@@ -65,6 +65,7 @@ public class AppController {
         NewsApi api = new NewsApi.Builder()
                 .endpoint(Endpoint.TOP_HEADLINES)
                 .q("corona")
+                .sourceCountry(Country.at)
                 .build();
 
         articles = new ArrayList<>();
