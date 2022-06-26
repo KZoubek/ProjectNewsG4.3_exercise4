@@ -69,32 +69,6 @@ public class NewsApi {
         //constructor for Builder
         public Builder(){}
 
-        /*
-        @Override
-        public String toString(){
-            StringBuilder buildUrl = new StringBuilder().append(scheme).append(host).append(version).append(endpoint);
-
-            if(language != null){
-                buildUrl.append(language).append("language=");
-            }
-            if(sourceCountry != null){
-                buildUrl.append(sourceCountry).append("sourceCountry=");
-            }
-            if(sourceCategory != null){
-                buildUrl.append(sourceCategory).append("sourceCategory=");
-            }
-            if(sortBy != null){
-                buildUrl.append(sortBy).append("sortBy=");
-            }
-            if(q != null){
-                buildUrl.append(q).append("q=");
-            }
-
-            return buildUrl.toString();
-        }
-
-         */
-
         //constructor for each variable and it returns that with the "this" statement
         //is used in AppController class
         public Builder endpoint(Endpoint endpoint){
