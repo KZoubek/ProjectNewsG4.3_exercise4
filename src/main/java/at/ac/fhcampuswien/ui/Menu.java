@@ -40,6 +40,7 @@ public class Menu {
             case "f" -> getArticlesShorterThan();
             case "g" -> sortArticlesByContentLength();
             case "h" -> downloadURLs();
+            //case "i" -> generateMocklist(controller);
             default -> printInvalidInputMessage();
         }
     }
@@ -121,6 +122,13 @@ public class Menu {
     private void getAllNewsBitcoin(AppController controller) {
         System.out.println(controller.getAllNewsBitcoin());
     }
+
+    /*private void generateMockList(AppController controller) {
+        List<Article> articleList = controller.generateMockList();
+
+        for( Article a : articleList) {
+            System.out.println(a);
+    }*/
 
     public static void printExitMessage(){
         System.out.println(EXIT_MESSAGE);

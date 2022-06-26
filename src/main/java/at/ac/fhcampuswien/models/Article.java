@@ -28,31 +28,24 @@ public class Article {
     public Source getSource() {
         return source;
     }
-
     public String getDescription() {
         return description;
     }
-
     public String getUrl() {
         return url;
     }
-
     public String getUrlToImage() {
         return urlToImage;
     }
-
     public String getPublishedAt() {
         return publishedAt;
     }
-
     public String getContent() {
         return content;
     }
-
     public String getAuthor() {
         return author;
     }
-
     public String getTitle() {
         return title;
     }
@@ -129,11 +122,14 @@ public class Article {
         }
 
         // build() returns a new Article
-        ////Return the finally constructed Article object
+        //Return the finally constructed Article object
+        //method used in Appcontroller with Mocklist to show usability
         public Article build(){
             return new Article(this);
         }
     }
 }
+
+
 
 
