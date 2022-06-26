@@ -25,6 +25,8 @@ public abstract class Downloader {
         if (urlString.contains("www.npr.org")){
             return fileName;
         }
+        if (urlString.contains("www.dlh.net")){
+            return fileName;}
         try {
             URL url4download = new URL(urlString);  // Convert string to URL
             is = url4download.openStream();
