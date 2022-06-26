@@ -68,7 +68,12 @@ public class AppController {
      * @return article list
      */
     public List<Article> getTopHeadlinesAustria() {
-        NewsApi api = new NewsApi("corona", Country.at, Endpoint.TOP_HEADLINES);
+        NewsApi api = new NewsApi.Builder()
+                .endpoint(Endpoint.TOP_HEADLINES)
+                .q("corona")
+                .sourceCountry(Country.at)
+                .build();
+
         articles = new ArrayList<>();
         try {
             NewsResponse response = api.requestData();
@@ -86,7 +91,11 @@ public class AppController {
      * @return filtered list
      */
     public List<Article> getAllNewsBitcoin() {
-        NewsApi api = new NewsApi("bitcoin", Endpoint.EVERYTHING);
+        NewsApi api = new NewsApi.Builder()
+                .endpoint(Endpoint.EVERYTHING)
+                .q("bitcoin")
+                .build();
+
         articles = new ArrayList<>();
         try {
             NewsResponse response = api.requestData();
