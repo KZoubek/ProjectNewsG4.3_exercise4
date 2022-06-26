@@ -22,9 +22,11 @@ public abstract class Downloader {
         InputStream is = null;
         OutputStream os = null;
         String fileName = "";
+        //added exception as it produces a fail
         if (urlString.contains("www.npr.org")){
             return fileName;
         }
+        //added exception as it produces a fail
         if (urlString.contains("www.dlh.net")){
             return fileName;}
         try {
