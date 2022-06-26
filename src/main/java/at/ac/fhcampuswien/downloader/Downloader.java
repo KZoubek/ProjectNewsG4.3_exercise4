@@ -22,6 +22,7 @@ public abstract class Downloader {
         InputStream is = null;
         OutputStream os = null;
         String fileName = "";
+        // added Exceptions
         if (urlString.contains("www.npr.org")){
             return fileName;
         }
